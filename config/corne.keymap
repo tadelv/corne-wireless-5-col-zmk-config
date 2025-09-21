@@ -34,6 +34,97 @@
             bindings = <&none &kp M &kp E &kp S &kp N &kp I &kp SPACE &kp B &kp U &kp R &kp E &kp K>;
             label = "MACRO_TEST";
         };
+
+        burger: burger {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp B &kp U &kp R &kp G &kp E &kp R>;
+            label = "BURGER";
+        };
+
+        spaghetti: spaghetti {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp S &kp P &kp A &kp G &kp H &kp E &kp T &kp T &kp I>;
+            label = "SPAGHETTI";
+        };
+
+        zivjo: zivjo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp Z &kp I &kp V &kp J &kp O>;
+            label = "ZIVJO";
+        };
+
+        mc_java: mc_java {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp M &kp I &kp N &kp E &kp C &kp R &kp A &kp F &kp T &kp SPACE &kp J &kp A &kp V &kp A &kp SPACE &kp E &kp D &kp I &kp T &kp I &kp O &kp N>;
+            label = "MC_JAVA";
+        };
+
+        ninenine_nights: ninenine_nights {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp N9 &kp N9 &kp SPACE &kp N &kp I &kp G &kp H &kp T &kp S &kp SPACE &kp S &kp U &kp R &kp V &kp I &kp V &kp A &kp L>;
+            label = "NINENINE_NIGHTS";
+        };
+
+        mc_bedrock: mc_bedrock {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp M &kp I &kp N &kp E &kp C &kp R &kp A &kp F &kp T &kp SPACE &kp B &kp E &kp D &kp R &kp O &kp C &kp K>;
+            label = "MC_BEDROCK";
+        };
+
+        kako_si: kako_si {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp K &kp A &kp K &kp O &kp SPACE &kp S &kp I &kp QMARK>;
+            label = "KAKO_SI";
+        };
+
+        kaj_si: kaj_si {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp K &kp A &kp J &kp QMARK>;
+            label = "KAJ_SI";
+        };
+
+        zakaj: zakaj {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp Z &kp A &kp K &kp A &kp J &kp QMARK>;
+            label = "ZAKAJ";
+        };
+
+        join_me: join_me {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp J &kp O &kp I &kp N &kp SPACE &kp M &kp E>;
+            label = "JOIN_ME";
+        };
+
+        grow_garden: grow_garden {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp G &kp R &kp O &kp W &kp SPACE &kp G &kp A &kp R &kp D &kp E &kp N>;
+            label = "GROW_GARDEN";
+        };
+
+        fisch: fisch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp F &kp I &kp S &kp C &kp H>;
+            label = "FISCH";
+        };
+
+        blox_fruits: blox_fruits {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp B &kp L &kp O &kp X &kp SPACE &kp F &kp R &kp U &kp I &kp T &kp S>;
+            label = "BLOX_FRUITS";
+        };
     };
 
     keymap {
@@ -41,10 +132,10 @@
 
         colebase {
             bindings = <
-  &kp Q         &kp W         &kp F        &kp P        &kp B        &kp J        &kp L            &kp U         &kp Y         &macro_test
-  &hrm LSHFT A  &hrm LCTRL R  &hrm LALT S  &hrm LGUI T  &kp G        &kp M        &hrm RGUI N      &hrm RALT E   &hrm LCTRL I  &hrm RSHFT O
-  &kp Z         &kp X         &kp C        &kp D        &kp V        &kp K        &kp H            &kp COMMA     &kp DOT       &kp FSLH
-                              &lt 0 ESC    &lt 0 SPACE  &lt 0 TAB    &lt 0 ENTER  &lt 0 BACKSPACE  &lt 0 DELETE
+  &kp Q         &kp W         &kp F        &kp P        &kp B        &kako_si  &mc_java          &grow_garden  &zivjo  &macro_test
+  &hrm LSHFT A  &hrm LCTRL R  &hrm LALT S  &hrm LGUI T  &kp G        &kaj_si   &ninenine_nights  &fisch        &none   &burger
+  &kp Z         &kp X         &kp C        &kp D        &kp V        &zakaj    &mc_bedrock       &blox_fruits  &none   &spaghetti
+                              &lt 0 ESC    &lt 0 SPACE  &lt 0 TAB    &none     &join_me          &none
             >;
 
             label = "base";
