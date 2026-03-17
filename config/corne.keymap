@@ -49,6 +49,30 @@
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
         };
+
+        hml_s: homerow_shift_meta_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            tapping-term-ms = <280>;
+            require-prior-idle-ms = <100>;
+            flavor = "balanced";
+            quick-tap-ms = <175>;
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        hmr_s: homerow_shift_meta_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            tapping-term-ms = <280>;
+            require-prior-idle-ms = <100>;
+            flavor = "balanced";
+            quick-tap-ms = <175>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
     };
 
     keymap {
@@ -57,7 +81,7 @@
         colebase {
             bindings = <
   &kp Q         &kp W         &kp F        &kp P        &kp B        &kp J        &kp L            &kp U         &kp Y         &kp SEMI
-  &hml LSHFT A  &hml LCTRL R  &hml LALT S  &hml LGUI T  &kp G        &kp M        &hmr RGUI N      &hmr RALT E   &hmr LCTRL I  &hmr RSHFT O
+  &hml_s LSHFT A  &hml LCTRL R  &hml LALT S  &hml_s LGUI T  &kp G        &kp M        &hmr_s RGUI N      &hmr RALT E   &hmr LCTRL I  &hmr_s RSHFT O
   &kp Z         &kp X         &kp C        &kp D        &kp V        &kp K        &kp H            &kp COMMA     &kp DOT       &kp FSLH
                               &lt 4 ESC    &lt 1 SPACE  &lt 5 TAB    &lt 6 ENTER  &lt 2 BACKSPACE  &lt 3 DELETE
             >;
