@@ -1,0 +1,49 @@
+services:
+  left:
+    image: docker.io/zmkfirmware/zmk-dev-arm:3.5
+    volumes:
+      - .:/workspaces/zmk-config:z
+    working_dir: /workspaces/zmk-config
+    environment:
+      - ZEPHYR_BASE=/workspaces/zmk-config/zephyr
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        set -e
+        if [ ! -d /workspaces/zmk-config/zmk ]; then
+          echo "==> Initializing west workspace..."
+          rm -rf /workspaces/zmk-config/.west
+          west init -l config
+          west update
+        fi
+        echo "==> Building corne_left..."
+        west build -s zmk/app -p -b nice_nano_v2 \
+          -d build/corne_left \
+          -- -DSHIELD=corne_left \
+             -DZMK_CONFIG=/workspaces/zmk-config/config \
+             -DCMAKE_PREFIX_PATH=/workspaces/zmk-config/zephyr/share/zephyr-package
+        echo "==> Done: build/corne_left/zephyr/zmk.uf2"
+
+  right:
+    image: docker.io/zmkfirmware/zmk-dev-arm:3.5
+    volumes:
+      - .:/workspaces/zmk-config:z
+    working_dir: /workspaces/zmk-config
+    environment:
+      - ZEPHYR_BASE=/workspaces/zmk-config/zephyr
+    depends_on:
+      left:
+        condition: service_completed_successfully
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        set -e
+        echo "==> Building corne_right..."
+        west build -s zmk/app -p -b nice_nano_v2 \
+          -d build/corne_right \
+          -- -DSHIELD=corne_right \
+             -DZMK_CONFIG=/workspaces/zmk-config/config \
+             -DCMAKE_PREFIX_PATH=/workspaces/zmk-config/zephyr/share/zephyr-package
+        echo "==> Done: build/corne_right/zephyr/zmk.uf2"
